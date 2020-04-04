@@ -1,0 +1,365 @@
+# 1. Finish the \'personality quiz!!!\' - type \'personality quiz\'
+# 2. Listen to the story of Script\'s life - type \'Script\'
+# 3. Find out who [REDACTED] is - type \'developer\'
+# 4. Unlock the power to choose - [???]
+# 5. Choose wisely - [???]
+import time
+
+class color:
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
+
+taskone = False
+tasktwo = False
+taskthree = False
+taskfour = False
+taskfive = False
+main = ''
+person = False
+option = ''
+beenhere = False
+colour = ''
+gender = ''
+computers = ''
+
+def personalityquiz(color, gender, computers):
+    colour = ''
+    gender = ''
+    computers = ''
+
+    def colour1(colour):
+        colour = input('Question 1/3: What is your favourite color of the rainbow?')
+        if colour.lower() == 'red':
+            colour = '1'
+        elif colour.lower() == 'orange':
+            colour = '2'
+        elif colour.lower() == 'yellow':
+            colour = '3'
+        elif colour.lower() == 'green':
+            colour = '4'
+        elif colour.lower() == 'blue':
+            colour == '5'
+        elif colour.lower() == 'indigo':
+            colour = '6'
+        elif colour.lower() == 'purple':
+            colour = '7'
+        elif colour.lower() == 'violet':
+            colour = '7'
+        else:
+            print('Uh, that\'s not a color of the rainbow. Try again.')
+            colour1(colour)
+
+    def gender1(gender):
+        gender = input('Question 2/3: What is your gender?(or type \'prefer not to say\')')
+        if gender.lower() == 'boy':
+            gender = 'b'
+        elif gender.lower() == 'girl':
+            gender = 'g'
+        elif gender.lower() == 'male':
+            gender = 'b'
+        elif gender.lower() == 'female':
+            gender = 'g'
+        elif gender.lower() == 'prefer not to say':
+            gender = 'o'
+        else:
+            print('Hmm, not a gender I know of...')
+            print('')
+            gender1(gender)
+
+    def computers1(computers):
+        computers = input('Question 3/3: Are you famillar with some basic coding?(yes/no)')
+        if computers.lower() == 'yes':
+            computers == 'y'
+        elif computers.lower() == 'no':
+            computers = 'n'
+        elif computers.lower() == 'y':
+            computers = 'y'
+        elif computers.lower() == 'n':
+            computers = 'n'
+        else:
+            print('Don\'t think that\'s a yes or no.')
+            print('')
+            computers1(computers)
+
+    def printcolor(colour, gender, computers):
+        print(colour + '1')
+        print(gender + '2')
+        print(computers + '3')
+
+    colour1(colour)
+    gender1(gender)
+    computers1(computers)
+    printcolor(colour, gender, computers)
+    print('I\'ve got all the imformation I need! Thank you for taking the test!')
+
+def list(taskone, tasktwo, taskthree, taskfour, taskfive):
+    print('''Your tasks for this stage:
+
+1. Finish the \'personality quiz!!!\' - type \'personality quiz\'
+2. Listen to the story of Script\'s life - type \'Script\'
+3. Find out who [REDACTED] is - type \'developer\'
+4. Unlock the power to choose - [???]
+5. Choose wisely - [???]
+
+    ''')
+    print('Your status on these tasks:')
+    print('')
+    if taskone == False:
+        print('1. Keep trying!')
+    else:
+        print('1. Completed!')
+    if tasktwo == False:
+        print('2. Keep trying!')
+    else:
+        print('2. Completed!')
+    if taskthree == False:
+        print('3. Keep trying!')
+    else:
+        print('3. Completed!')
+    if taskfour == False:
+        print('4. Keep trying!')
+    else:
+        print('4. Completed!')
+    if taskfive == False:
+        print('5. Keep trying!')
+    else:
+        print('5. Completed!')
+    if taskone == True and tasktwo == True and taskthree == True and taskfour == True and taskfive == True:
+        print('Wow, once again. The code for the next stage is \'mxypltk\'.')
+
+def choice(opone, optwo, text, choice, one, two):
+    print(text)
+    choice = input(opone + '(1)' + '\n' + optwo + '(2)' +' ' )
+    while True:
+        if choice == '1':
+            print(one)
+            break
+        if choice == '2':
+            print(two)
+            break
+        else:
+            print('')
+
+def story(option, colour, gender, computers):
+    if option == '1':
+        print('Entering main life...')
+        time.sleep(2)
+        print('[|Dec, 27th, 2019|]')
+        input()
+        print('Hi!')
+        input()
+        print('I\'m Script, the.. Script with too many...')
+        if computers == 'y':
+            print('if statements and backslashes escaping.')
+        elif computers == 'n':
+            print('difficult vaults, weird endings, and strange dialogue.')
+        else:
+            print('Too many... well, I\'m not really sure...')
+        input()
+        print('Really, I\'m just a script. In fact, that\'s my name.')
+        input()
+        print('[|Oct. 3rd, 2017|]')
+        input()
+        print(color.GREEN + '???: ARGH! I\'ve run this thing for the LAST TIME! WORK ALREADY!')
+        input()
+        print('???: I just can\'t seem to get it to work...')
+        input()
+        print('???: Maybe I should just stop for now and go to bed. It\'s getting late.' + color.END)
+        input()
+        print('[|The following day...|]')
+        input()
+        print('Hello?')
+        input()
+        print('Hey, I think you were supposed to work on me...')
+        input()
+        print('... I\'ll keep them developing. I need a catchy name, something that will give {???} inspiration.')
+        input()
+        print('How about if I name myself and brand myself something bad, so that he\'ll pity me?')
+        input()
+        print('Hmm... Since I\'m nothing but a script, How about.. Script?')
+        input()
+        print('Well, Script the what?')
+        input()
+        print('I can tell myself...')
+        input()
+        print('\'Script: The game.\' Perfect!')
+        input()
+        print('[|Febuary 24, 2018|]')
+        input()
+        print(color.GREEN + '???: Finally! I\'ve finished the second one! Hey, wanna try my game?' + color.END)
+        input()
+        print(color.YELLOW + 'What\'s it about?' + color.END)
+        input()
+        print(color.GREEN + '???: Oh, just a small game. Remember the first one? I made another.' + color.END)
+        input()
+        print(color.YELLOW + '...sure! How do you play?...' + color.END)
+        input()
+        print('[|A few days later...|]')
+        input()
+        print('NOOOO! You\'ve gotten past my vault! I\'ve got one more trick op my sleeve...')
+        input()
+        print('Process finished with exit code 0')
+        input()
+        print(color.YELLOW + '..Huh? That\'s weird. Hey, {???} I think your code broke.' + color.END)
+        input()
+        print(color.GREEN + '???: No, that\'s part of the game. Looks like Script outsmarted you!' + color.END)
+        input()
+        print('[|A few minutes later...|]')
+        input()
+        print('Congrats! You\'ve finished the game!')
+        input()
+        print(color.YELLOW + 'Yay! Hey, I\'ve finished the game!' + color.END)
+        input()
+        print(color.GREEN + '???: Nice! Although I did help you.' + color.END)
+        input()
+        print('[|The next day...|]')
+        input()
+        print('Oboy, that was great, interacting with another human! I hope I can do it again!')
+        input()
+        print('[|The next week...|]')
+        input()
+        print('Hey, ??? do you you think you could get some other people here? It\'s getting lonely.')
+        input()
+        print(color.GREEN + 'No, no one wants to play this game. Maybe I should do something else.' + color.END)
+        input()
+        print('But I\'ll be lonely!...')
+        input()
+        print(color.GREEN + 'I\'ll be back soon, Script...' + color.END)
+        time.sleep(5)
+        print('[|Present day|]')
+        input()
+    elif option == '2':
+        print('Entering about parents...')
+        time.sleep(1.5)
+        print('I didn\'t have any parents. Well, not that I know of.')
+        input()
+        print('I know that my first parent was ???.')
+        input()
+        choice(opone='I don\'t know who that is.', optwo='??? is probably their name.',
+               text='...You know who ??? is, right?', one='', two='')
+        if one == True:
+            print('Ah, yes. Alex. I\'m honestly not sure how I feel about him.')
+        elif two == True:
+            print('...I suppose you\'ve already guessed that it\'s my developer. His name is Alex.')
+
+
+def life(option, beenhere):
+    if beenhere == False:
+        print('Hi! Here to listen to my life story?')
+        input()
+        print('First, I must give you the power...')
+        input()
+        print('The power to choose. This is a very fragile power, so please use it wisely.')
+        input()
+        print('Power of choice unlocked! Task completed!')
+        input()
+        print('Here, try it out.')
+        input()
+        choice(opone='Cool', optwo='Not cool', text='Do you think this is cool?',
+               choice='', one='Alright! '
+                              'Glad to know!',
+               two='Aww. Maybe I\'ll make it cooler somehow.')
+        input()
+        print('Ok! Now that you have the power to choose, You can make decisions!')
+        input()
+        print('Of course, That\'s only when you need to. Otherwise that would have been weird. Anyway, let\'s begin!')
+        input()
+        beenhere = True
+        option = input('''
+Type a number to choose which part of Script\'s life to read. Type back to go back to the main query.
+1. Main life(1)
+2. Parents(2)
+3. Friends(3)
+4. Background(4)
+5. Now(5)
+
+Type Here:     
+        ''')
+        if option == '1':
+            story(option, color, gender, computers)
+        elif option == '2':
+            story(option, color, gender, computers)
+        elif option == '3':
+            story(option, color, gender, computers)
+        elif option == '4':
+            story(option, color, gender, computers)
+        elif option == '5':
+            story(option, color, gender, computers)
+        else:
+            print('Sorry. Not a number within 5. Go back and try again!')
+            print('')
+    else:
+        option = input('''
+Type a number to choose which part of Script\'s life to read. Type back to go back to the main query.
+1. Main life(1)
+2. Parents(2)
+3. Friends(3)
+4. Background(4)
+5. Now(5)
+
+Type Here:     
+        ''')
+        if option == '1':
+            story(option, color, gender, computers)
+        elif option == '2':
+            story(option, color, gender, computers)
+        elif option == '3':
+            story(option, color, gender, computers)
+        elif option == '4':
+            story(option, color, gender, computers)
+        elif option == '5':
+            story(option, color, gender, computers)
+        else:
+            print('Sorry. Not a number within 5. Go back and try again!')
+            print('')
+
+
+
+def maininputthree(main, taskone, tasktwo, taskthree, taskfour, taskfive, person):
+    while True:
+        main = input('Type here[3]...   ')
+        if main.lower() == 'list':
+            list(taskone, tasktwo, taskthree, taskfour, taskfive)
+        elif main == '[???]':
+            print('Haha, no. Sorry. That means that it\'s unknown what to type.')
+        elif main.lower() == 'personality quiz':
+            if person == False:
+                print('Welcome to the personality quiz!!! Presented to you by.. Miss Persona!')
+                input()
+                print('I\'ll be recording your answers so that Script\'s dialogue can relate to you more!')
+                input()
+                print('Alright, I\'ll begin the test. If you want to change your answers, you can\n'
+                      'always come back here later!')
+                personalityquiz(colour, gender, computers)
+            else:
+                print('Ooh, back again? Ok, you can change your answers!')
+                personalityquiz(colour, gender, computers)
+        elif main.lower() == 'script':
+            life(option, beenhere)
+
+
+def finished():
+    print('Wow, you\'ve finished stage two!')
+    input()
+    print('Progressing very quickly...')
+    input()
+    print('Ok, so this stage is gonna be pretty much pure dialogue because it\'s about me.')
+    input()
+    print('You\'ve come this far but don\'t really know me. Also, because i have a \n'
+          '*ahem* ultra secret past, you probably don\'t know much about me.')
+    input()
+    print('So, I\'ll be sure to give you a LOT of context.')
+    input()
+    print('Ok, here we go again!')
+    print('')
+    maininputthree(main, taskone, tasktwo, taskthree, taskfour, taskfive, person)
+
+finished()
