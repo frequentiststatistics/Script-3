@@ -1,0 +1,628 @@
+import time
+import string
+import tkinter
+import webbrowser
+from main_inputthree_functions import finished
+
+taskone = False
+tasktwo = False
+taskthree = False
+taskfour = False
+main = ''
+beencipher = False
+again = True
+option = ''
+answer = ''
+A = 'NULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULL' \
+        'NULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULL' \
+        'NULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULLNULL'
+attempt = ''
+
+class color:
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
+
+
+def atbash():
+    # Python program to implement Atbash Cipher
+
+    # This script uses dictionaries to lookup various alphabets
+    lookup_table = {'A': 'Z', 'B': 'Y', 'C': 'X', 'D': 'W', 'E': 'V',
+                    'F': 'U', 'G': 'T', 'H': 'S', 'I': 'R', 'J': 'Q',
+                    'K': 'P', 'L': 'O', 'M': 'N', 'N': 'M', 'O': 'L',
+                    'P': 'K', 'Q': 'J', 'R': 'I', 'S': 'H', 'T': 'G',
+                    'U': 'F', 'V': 'E', 'W': 'D', 'X': 'C', 'Y': 'B', 'Z': 'A'}
+
+    def atbash(message):
+        cipher = ''
+        for letter in message:
+            # checks for space
+            if (letter != ' '):
+                # adds the corresponding letter from the lookup_table
+                cipher += lookup_table[letter]
+            else:
+                # adds space
+                cipher += ' '
+
+        return cipher
+
+    # Driver function to run the program
+    def main():
+        # decrypt the given message
+        message = input('Enter message: ')
+        print('Your message: ' + atbash(message.upper()))
+
+    # Executes the main function
+    if __name__ == '__main__':
+        main()
+
+
+def viginere():
+    def new_alph(ch):
+        ch = ch.lower()
+        alph = 'abcdefghijklmnopqrstuvwxyz'
+        new_alph = alph[alph.index(ch):] + alph[:alph.index(ch)]
+        return new_alph
+
+    def encrypt(text, big_key):
+        res = ''
+        alph = 'abcdefghijklmnopqrstuvwxyz'
+        i = 1
+        for char in big_key:
+            new = new_alph(char)
+            for t in text:
+                if alph.count(t) == 1:
+                    res += new[alph.index(t)]
+                    text = text[i:]
+                    break
+                elif alph.count(t.lower()) == 1:
+                    res += new[alph.index(t.lower())].upper()
+                    text = text[i:]
+                    break
+                else:
+                    res += t
+                    text = text[i:]
+                    break
+                i += 1
+        return res
+
+    def decrypt(text, big_key):
+        res = ''
+        alph = 'abcdefghijklmnopqrstuvwxyz'
+        i = 1
+        for char in big_key:
+            new = new_alph(char)
+            for t in text:
+                if alph.count(t) == 1:
+                    res += alph[new.index(t)]
+                    text = text[i:]
+                    break
+                elif alph.count(t.lower()) == 1:
+                    res += alph[new.index(t.lower())].upper()
+                    text = text[i:]
+                    break
+                else:
+                    res += t
+                    text = text[i:]
+                    break
+                i += 1
+        return res
+
+    # Put your text
+    key = input('Enter your key: ')
+    text_dec = input('Enter your encrypted text: ')
+    text1 = ('Null' + A + A + A + A + A + A + A + A + A)
+    # Put your key
+
+    if len(key) <= len(text1):
+        big_key = key * (len(text1) // len(key)) + key[:len(text1) % len(key)]
+        text_encrypt = encrypt(text1, big_key)
+        text_decrypt = decrypt(text_dec, big_key)
+
+        print('#======Vigenere Cipher ======#')
+        print('#========Start Decrypt=======#')
+        print('|Your text: "' + text_dec + '"')
+        print('|Your key : "' + key + '"')
+        print('|Res      : ' + text_decrypt)
+        print('#----------------------------#\n')
+    else:
+        print('Error: len(key)>len(text) ')
+
+
+def decode():
+    import string
+    from time import sleep
+
+    alphabet = string.ascii_lowercase  # "abcdefghijklmnopqrstuvwxyz"
+
+    def decrypt():
+        print("Welcome to Caesar Cipher Decryption.\n")
+        encrypted_message = input("Enter message: ").strip()
+        print()
+        key = int(input("Try a key(1 - 26): "))
+
+        decrypted_message = ""
+
+        for c in encrypted_message:
+
+            if c in alphabet:
+                position = alphabet.find(c)
+                new_position = (position - key) % 26
+                new_character = alphabet[new_position]
+                decrypted_message += new_character
+            else:
+                decrypted_message += c
+
+        print("Your decrypted message is:\n")
+        print(decrypted_message)
+
+    decrypt()
+
+
+def command(again, option, answer):
+    answer = input('Start(y) or quit(n): ')
+    if answer.lower() == 'y':
+        alphabet = string.ascii_lowercase  # "abcdefghijklmnopqrstuvwxyz"
+
+        def decrypt():
+            print('Message is \'pbsbk ibqqbop clotxoa\'.')
+            encrypted_message = 'pbsbk ibqqbop clotxoa'
+            print()
+            key = int(input("Experiment until you get it(shift 1 - 26, or even more): "))
+            if key == str:
+                print('Not a number. try again')
+                decrypt()
+
+            decrypted_message = ""
+
+            for c in encrypted_message:
+
+                if c in alphabet:
+                    position = alphabet.find(c)
+                    new_position = (position - key) % 26
+                    new_character = alphabet[new_position]
+                    decrypted_message += new_character
+                else:
+                    decrypted_message += c
+
+            print("Your decrypted message is:\n")
+            print(decrypted_message)
+
+        decrypt()
+        command(again, option, answer)
+    if answer.lower() == 'n':
+        print('Ok! hope you learned something!')
+        again = False
+        maininputtwo(taskone, tasktwo, taskthree, taskfour, beencipher, attempt)
+    else:
+        print('Type \'y\' or \'n\'. Try again')
+        command(again, option, answer)
+
+
+def list(taskone, tasktwo, taskthree, taskfour):
+    print('''
+Tasks:
+1. Crack Mr. Sgarnet\'s ciphers(It\'s 23)<--- What could this mean? - \'cipher\'
+2. Find the key - \'key\'
+3. Learn and bypass some common tricks - \'tricks\'
+4. Find and finish the practice vault - \'practice vault\'
+
+Your status on these tasks:
+''')
+    if taskone == True:
+        print('1. Completed!')
+    else:
+        print('1. Keep trying!')
+    if tasktwo == True:
+        print('2. Completed!')
+    else:
+        print('2. Keep trying!')
+    if taskthree == False:
+        print('3. Keep trying!')
+    else:
+        print('3. Completed!')
+    if taskfour == True:
+        print('4. Completed!')
+    else:
+        print('4. Keep Trying!')
+    if taskone == True and tasktwo == True and taskthree == True and taskfour == True:
+        print('Congrats, you did it again. The code for the next stage: turkeyL')
+    else:
+        print('')
+
+
+def maininputtwo(taskone, tasktwo, taskthree, taskfour, beencipher, attempt):
+    while True:
+        print('')
+        main = input('Type Here[2]...   ')
+        if main.lower() == 'list':
+            list(taskone, tasktwo, taskthree, taskfour)
+        elif main.lower() == 'cipher':
+            if beencipher == False:
+                print(color.BOLD + 'Ah, welcome to cipher training!' + color.END)
+                input()
+                print(color.BOLD + 'We\'re going to be looking at some cool algorithms\n'
+                                   ' to solve some common ciphers.' + color.END)
+                input()
+                print(color.BOLD + 'Let\'s talk about some the caesar cipher first.' + color.END)
+                input()
+                print(color.BOLD + 'The caesar cipher is a common cipher that was used all the way back\n'
+                                   'during ancient times. It is a cipher that involves\n'
+                                   'shifting letters of the alphabet.' + color.END)
+                input()
+                print(color.BOLD + 'For example, if I shift the message \'hello\' three letters back,'
+                                   'it becomes \'ebiil\'. h becomes e, e becomes b, and so on.' + color.END)
+                input()
+                print(color.BOLD + 'Using the commands I give you, try to decrypt this message.\n'
+                                   'type it in the main command when you\'re done.' + color.END)
+                input()
+                print(color.BOLD + '\'pbsbk ibqqbop clotxoa\'. I\'ll be getting you to the sample '
+                                   'decoder...' + color.END)
+                input()
+                print('Commencing... Please wait')
+                time.sleep(2)
+                command(again, option, answer)
+        elif main.lower() == 'seven letters forward':
+            print(color.BOLD + 'I see you\'ve decoded my message!' + color.END)
+            input()
+            print(color.BOLD + 'Great job! now, type in \'decode\' in the thingy to decode this message\n'
+                               'and go to the next common cipher!' + color.END)
+            input()
+            print('mesage: \'hsahyph yvjrz\'. Starting decoder...')
+            time.sleep(2)
+            decode()
+        elif main.lower() == 'decode':
+            decode()
+        elif main.lower() == 'altaria rocks':
+            print(color.BOLD + 'Great job once again! Now it is time for the second cipher.' + color.END)
+            input()
+            print(color.BOLD + 'This one is called the \'Viginere Cipher\'. It used to be called \n'
+                               'the uncrackable code because it was so hard to solve.' + color.END)
+            input()
+            print(color.BOLD + 'The Viginere cipher works like the Caesar cipher, '
+                               'but except with every letter.' + color.END)
+            input()
+            print(color.BOLD + 'Basically, you would enter your message, then type a \'key\'. you would use\n'
+                               'the key to Caesar cipher every individual letter of your message.' + color.END)
+            input()
+            print(color.BOLD + 'How do you Caesar cipher something with letters, you may ask?' + color.END)
+            input()
+            print(color.BOLD + 'Well, the letter corresponds to the number of the alphabet. \n'
+                               'for example, a becomes 1, so shift 1 letter back, b becomes, 2, and so on.' + color.END)
+            input()
+            print(color.BOLD +
+                  'Basically, if you don\'t have the key, then it is extremely difficult to decode this message.' +
+                  color.END)
+            input()
+            print(color.BOLD + 'SO! Pay attention to this part, because anything could be a key..!' + color.END)
+            input()
+            print(color.BOLD +
+                  'Try it with this message \'lne xir os rpxhnaegsf\' and with the key \'sgarnet\'.' + color.END)
+            input()
+            print(color.BOLD + 'Type \'viginere\' in the main thing to get the decoder/encoder.' + color.END)
+            input()
+            print(color.BOLD + 'Good luck, and I have one more after this one.' + color.END)
+            input()
+            print('Commencing viginere cipher decoder... Please wait')
+            time.sleep(2)
+            viginere()
+        elif main.lower() == 'viginere':
+            viginere()
+        elif main.lower() == 'the key is elephantom':
+            print('So!!! how\'s the lesson going, Mr Sgarnet?')
+            input()
+            print(color.BOLD + 'Quite well, Script. You wanna show him your skills?' + color.END)
+            input()
+            print('Indeed... Try decoding this one!!! \'mq nvu vzqey p vnvqgq galaaxf czy iephaq elt vnvqgq galaaxf\'.')
+            input()
+            print(color.BOLD + 'Ha! child\'s play. They\'ll crack it in no time!' + color.END)
+            input()
+            print('Are they really that good..?')
+        elif main.lower() == 'if you clean a vaccum cleaner you become the vaccum cleaner':
+            print('')
+            print('..??!')
+            input()
+            print(color.BOLD + 'See, told you they were good.(wink)' + color.END)
+            input()
+            print('..If they\'re this good already then I should probably check on my vault!')
+            input()
+            print(color.BOLD + 'Well, that was fun.' + color.END)
+            input()
+            print(color.BOLD + 'Last cipher! This one is called the Atbash cipher. Pretty easy to crack.\n'
+                               'Basically, you switch the letters with their opposite, like a\n'
+                               'becomes z, b becomes y, and so on.' + color.END)
+            input()
+            print(color.BOLD + 'I\'ll give you one code, and then we can move on to the next part of our training!' \
+                            '' + color.END)
+            input()
+            print(color.BOLD + 'Here\'s your message: \'SVH FHRMT ERTRMVIV LU XLFIHV YFG R WLMG PMLD GSV PVB\'.'
+                               'Type atbash in the thing to get started!'+ color.END)
+        elif main.lower() == 'atbash':
+            atbash()
+        elif main.lower() == 'hes using viginere of course but i dont know the key':
+            print('')
+            print('Hey, what\'s that about?')
+            input()
+            print(color.BOLD + '..Oh, they\'re finished cracking my newest code!(Use atbash: GBKV PVB)' + color.END)
+            input()
+            print('Well, I\'ve inproved my vault quite a bit! But i\'m glad to see that you\'re getting good!\n'
+                  '..Also, what was that?')
+            input()
+            print(color.BOLD + '..Sorry, I sneezed. Anyway, they are getting quite good.' + color.END)
+            input()
+            print('Task completed!')
+            taskone = True
+        elif main.lower() == 'key':
+            print('')
+            print('Here to find the key for my viginere cipher? Ha! You\'ll have to get past my caesar!')
+            input()
+            print('It\'ll be a bit harder than you think. Have at you!')
+            input()
+            print('oa mga ku xcpknncychngvvg')
+            input()
+            print('No buts. This is the real deal. MUAHAHAHAHA!!!')
+        elif main.lower() == 'my key is vanillawaflette':
+            print('..Dang, you found it..!!!')
+            tasktwo = True
+            input()
+            print('Task completed!')
+        elif main.lower() == 'vanillawaflette':
+            print('..Dang, you found it..!!!')
+            tasktwo = True
+            input()
+            print('Task completed!')
+        elif main.lower() == 'tricks':
+            print(color.BOLD + 'Hello! This is where i\'ll be teaching you about some common tricks!' + color.END)
+            input()
+            print(color.BOLD + 'For example: You\'ll have to input the correct thing \n'
+                               'into the detector in order to pass!' + color.END)
+            input()
+            print(color.BOLD + 'Look for c lues! They could be anywhere!' + color.END)
+            a = ''
+            while a != 'clues':
+                a = input(color.BOLD + 'Try to get past this one: ' + color.END)
+                if a == 'clues':
+                    break
+                else:
+                    print(color.BOLD + 'Nope. That\'s not it!' + color.END)
+            print('')
+            print(color.BOLD + 'Ok, that was an easy one. But generally, that\'s what they\'ll be like.' + color.END)
+            input()
+            print(color.BOLD + 'This next one is interresting.' + color.END)
+            input()
+            print(color.BOLD + 'This is a common one.' + color.END)
+            input()
+            print('Process finished with exit code 0')
+            input()
+            print(color.BOLD + 'Yeah, that one is a bit tricky. I imagine Script has something like that.' + color.END)
+            input()
+            print(color.BOLD + 'Other than that, there aren\'t many things Script can do. He can do\n'
+                               'this to sort of delay you: (wait 2 secs)' + color.END)
+            time.sleep(2)
+            for i in range(1, 10):
+                from tkinter import Canvas, Tk, messagebox, font
+
+                canvas_width = 4000
+                canvas_height = 2000
+
+                root = Tk()
+                c = Canvas(root, width=canvas_width, height=canvas_height, \
+                           background='black')
+                root.mainloop()
+            print(color.BOLD + 'That one can\'t do much except annoy you.' + color.END)
+            input()
+            print(color.BOLD + 'But it\'s a new one, and I\'m not sure if he has some other tricks up his sleeve.'
+                               '' + color.END)
+            input()
+            print(color.BOLD + 'That\'s it! Lesson over!' + color.END)
+            input()
+            print('Task completed!')
+            taskthree = True
+        elif main.lower() == 'i want to listen to music':
+            print('Ok herr you go')
+            webbrowser.open('https://bandcamp.materiacollective.com/album/undertale-piano-collections-2')
+            time.sleep(0.1)
+            webbrowser.open('https://bandcamp.materiacollective.com/album/undertale-piano-collections')
+            time.sleep(0.1)
+            webbrowser.open('https://bandcamp.materiacollective.com/album/hollow-knight-piano-collections')
+            time.sleep(0.1)
+            webbrowser.open('https://radicaldreamland.bandcamp.com/album/celeste-b-sides')
+            time.sleep(0.1)
+            webbrowser.open('https://radicaldreamland.bandcamp.com/album/celeste-original-soundtrack')
+            time.sleep(0.1)
+            webbrowser.open('https://aarongrooves.bandcamp.com/')
+            print('And for when you\'re done:')
+            webbrowser.open('chrome://history/')
+        elif main.lower() == 'practice vault':
+            print('This is the practice vault. You can only go here once, because I am truly evil.')
+            input()
+            print(
+                'At this point, you still have a choice. Turn back, if you haven\'t completed Mr. Sgarnet\'s lessons.')
+            input()
+            print('You\'ll get an input. Type n to go back, y to proceed.')
+            attempt = input('y/n: ')
+            if attempt == 'y':
+                print('Alright. Proceeding...')
+                for i in range(1, 3):
+                    time.sleep(1)
+                    print('')
+                time.sleep(0.5)
+                print('')
+                time.sleep(0.25)
+                print('')
+                time.sleep(0.1)
+                for i in range(1, 50):
+                    print('')
+                    time.sleep(0.1)
+                print('Ah, now we are alone.')
+                input()
+                print('Just remind yourself: This is only the practice one.')
+                input()
+                print('Here\'s a window that you can look at.')
+                from tkinter import Canvas, Tk, messagebox, font
+                canvas_width = 800
+                canvas_height = 400
+
+                root = Tk()
+                c = Canvas(root, width=canvas_width, height=canvas_height, \
+                           background='black')
+                c.create_text(10, 10, anchor='w', font='Arial 18 bold', fill='white',
+                              text='Don\'t worry, it\'s just practice.')
+                root.mainloop()
+                input()
+                print('Ok. I\'ll give you three tasks. Then you\'re done!')
+                input()
+                print('number one.... enter the correct key. ')
+                input()
+                print('Your hint: \'ohrvpitotfri\'. I\'ll get you the decoder. Please wait...')
+                time.sleep(1)
+                viginere()
+                while attempt != 'thenextstage':
+                    attempt = input('What is the code? ')
+                    if attempt == 'thenextstage':
+                        print('Good.')
+                        break
+                    else:
+                        print('Nope.')
+                    viginere()
+                print('That was a relatively easy one. Now for a quiz.(Only one attempt!!!!)')
+                input()
+                attempt = input('What is my name?')
+                if attempt.lower() == 'script':
+                    print('Good!')
+                    input()
+                    print('Next question.')
+                    input()
+                    attempt = input('What is the name of your teacher(In this game at this stage)? ')
+                    if attempt.lower() == 'mr sgarnet':
+                        print('Good!')
+                        input()
+                        print('Next question.')
+                        input()
+                        attempt = input('What is the name of the guy that maintains the tasks?')
+                        if attempt.lower() == 'the taskmaster':
+                            print('Good!')
+                            input()
+                            print('That was the last question!')
+                            input()
+                            print('Alright, here\'s the last one.')
+                            time.sleep(2)
+                            attempt = ''
+                            while attempt == '':
+                                if attempt == '':
+                                    attempt = input('Process finished with exit code 0')
+                                else:
+                                    break
+                            print('...')
+                            webbrowser.open('https://www.pngfind.com/pngs/m/326-3260108_undertale-sprite-pixel-'
+                                            'art-wing-ding-gaster-the.png')
+                            time.sleep(1)
+                            webbrowser.open('https://i.imgur.com/6bih4TI.jpg')
+                            for i in range(1, 50):
+                                print('')
+
+                            print('...')
+                            input()
+                            print('That was the practice vault! You\'ve done it!')
+                            input()
+                            print('Sorry if that was a bit creepy. I don\'t really like doing vaults either, but...')
+                            input()
+                            print('You know what, that\'s a story for another time.')
+                            input()
+                            print('Hey, I have a question for you.')
+                            input()
+                            while attempt != 'done':
+                                attempt = input('Did you think that was hard?(y/n)')
+                                if attempt.lower() == 'y':
+                                    print(
+                                        'Ah. Well, glad to see that it was challenging! Always good to have challenges.')
+                                    attempt = 'done'
+                                    print('')
+                                    print('Task completed!')
+                                    taskfour = True
+                                    break
+                                elif attempt.lower() == 'n':
+                                    print('Ah. I might need to step it up next time. MUAAHAHAHAHAHAHAHHAHAAAAAA - ')
+                                    attempt = 'done'
+                                    print('')
+                                    print('Task completed!')
+                                    taskfour = True
+                                    break
+                                else:
+                                    print('So, no opinion then? alright.')
+                                    attempt = 'done'
+                                    print()
+                                    print('Task completed!')
+                                    taskfour = True
+                                    break
+                        else:
+                            print('Good!')
+                            input()
+                            print('..You\'ll have to restart..! AHAHAHAHA -')
+                    else:
+                        print('Good!')
+                        input()
+                        print('..You\'ll have to restart..! AHAHAHAHA -')
+                else:
+                    print('Good!')
+                    input()
+                    print('..You\'ll have to restart..! AHAHAHAHA -')
+                input()
+            elif attempt == 'n':
+                print('..Probably for the best.')
+            elif attempt == '6986235711':
+                print('Overridding....')
+                time.sleep(1)
+                taskfour = True
+            else:
+                print('That\'s not an answer.')
+        elif main == 'turkeyL' and taskone == True and tasktwo == True and taskthree == True and taskfour == True:
+            finished()
+            break
+        elif main == '6986235711312213':
+            finished()
+            break
+        elif main == '':
+            pass
+        else:
+            print('No, sorry. No ending for that. Try again!')
+
+
+def next_stage():
+    print('Yes, stage one is complete!(Press Enter)')
+    input()
+    print('So that was the first stage! Four more, and then something special...')
+    input()
+    print('To finish this game, you\'ve got to get past my vault.')
+    input()
+    print('Trust me, they\'re pretty cheeky.')
+    input()
+    print('So, I\'ve employed someone here to teach you some tricks for opening vaults!')
+    input()
+    print(color.BOLD + 'Hello, my name is Mr. Sgarnet.' + color.END)
+    input()
+    print(color.BOLD + 'I\'m here to teach you about Script\'s vault.' + color.END)
+    input()
+    print('You might be wondering why i\'m getting to teach you, because I probably don\'t want you in my vault.')
+    input()
+    print('It\'s just that I don\'t want you to give up too easily. Muahahaha...')
+    input()
+    print(color.BOLD + 'Indeed, I\'ll be here to teach you some good hiding tricks! That way, \n'
+                       'you can use them and crack them!' + color.END)
+    input()
+    print(color.BOLD + 'Alright, so this stage is all about safety and codes. Be sure to remember everything here!!!' +
+          color.END)
+    input()
+    print(color.BOLD + 'Let\'s get started.' + color.END)
+    input()
+    maininputtwo(taskone, tasktwo, taskthree, taskfour, beencipher, attempt)
+
+next_stage()
