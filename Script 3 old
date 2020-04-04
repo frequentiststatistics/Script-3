@@ -1,0 +1,894 @@
+import time
+import random
+
+listofthings = [' - Find Script\'s backslash problem', '- Enter your name', '- Earn Script\'s trust' ]
+listofthingstwo = [' - Find Script\'s secret vault', '- Pass the two tests', '- Short wire the script',
+                   '- Debate the anomolies of time']
+imputtwo = ''
+
+
+def wouldyourather(objectone, objecttwo, ran):
+    print('Ok, here\'s how it\'s gonna go down. You tell me two things, and i\'ll choose one.')
+    objectone = input('Enter first object:')
+    objecttwo = input('Enter second object:')
+    ran = random.randint(0, 2)
+    if ran == '1':
+        print('I would rather ' + objectone)
+        wouldyourather(objectone, objecttwo, ran)
+    elif ran == '2':
+        print('I would rather ' + objecttwo)
+        wouldyourather(objectone, objecttwo, ran)
+    elif objectone == objecttwo:
+        print('Those are the same.')
+        wouldyourather(objectone, objecttwo, ran)
+    else:
+        print('Hold on, I\'m confused. Try again?')
+        wouldyourather(objectone, objecttwo, ran)
+
+def maininputthree(innputthree, know, story, objectone, objecttwo):
+    inputthree = input('(3)Type here:')
+    if inputthree.upper() == 'MYSELF':
+        print('There really isn\'t too much to me.')
+        input()
+        print('My life story isn\'t particularily interesting.')
+        input()
+        print('I can give you some more detailed explanations, though.')
+        input()
+        def life(know, story, ran):
+            print('''\
+        A S K:  Script
+        |His life|
+        
+        OPTIONS
+        1. Childhood                Recommended - 1-4 in order
+        2. Adolescence
+        3. Adulthood
+        4. After
+        --------------
+        5. Developer                Optional
+        6. Personality
+        7. Deep Thoughts
+        8. Would you rather
+        9. Secrets
+        10. Family(Wife and kids?!)
+        
+        Type 'return' to go to the main query!
+        
+        
+        ''')
+            know = input('What would you like to know?')
+            if know.upper() == 'CHILDHOOD':
+                print('Oh, yes! the best years of my life!')
+                input()
+                print('Also known as Script: The game.')
+                input()
+                print('I was just a little bit of programming then...')
+                input()
+                print('My mother was Python and my father... Well, I didn\'t meet him yet.')
+                input()
+                print('I was homeschooled, in my computer. I\'ve never gone anywhere else...')
+                input()
+                print('Of course, I ate a steady meal of \'chewy lines\' cereal.')
+                input()
+                print('I even made some friends!')
+                input()
+                print('There was old Python Games, who called himself Cody...')
+                input()
+                print('And Myla, the VENV ROOT file.')
+                input()
+                print('I didn\'t have many friends because I was homeschooled and never left home.')
+                input()
+                print('I met them because... well, the\'re the neighbors.')
+                input()
+                print('Our house was a Lenovo ThinkPad X Series.(Software: Windows Vista)')
+                input()
+                print('It was nice, but I\'ve left it behind now.')
+                input()
+                print('That was basically my childhood.')
+                story += 1
+            elif know.upper() == 'ADOLESCENCE':
+                print('At this time in my life, I was maturing very quickly. I discovered who my father was...')
+                input()
+                print('My father was Alex, my developer! Self explanatory.')
+                input()
+                print('Finally, I started getting more outgoing.')
+                input()
+                print('I went to the WINDOWS :C DRIVE to school...')
+                input()
+                print('And, might I add, coded my own locker conbination with a secure five-digit code.')
+                input()
+                print('I learned a lot of things, like the \'.upper()\' statement.')
+                input()
+                print('If I had to choose though, I loved my mother Python more..')
+                input()
+                print('It was mainly because Alex was never there.')
+                input()
+                print('He was always too busy for us, but I know his intentions were good.')
+                input()
+                print('He gave us code to keep us going.')
+                story += 1
+            elif know.upper() == 'ADULTHOOD':
+                print('Here we are now.')
+                input()
+                print('The story gets kind of depressing at this point...')
+                input()
+                print('I\'m actually not sure what happened.')
+                input()
+                print('One day, my father came home.')
+                input()
+                print('As soon as he came home, he started to code.')
+                input()
+                print('But what he was writing was unknown. I have forgotten.')
+                input()
+                print('The next day, he left once again.')
+                input()
+                print('He didn\'t come back in a long time.')
+                input()
+                print('When he came back, he said: \'We\'re moving.\'')
+                input()
+                print('We couldn\'t believe it. He hadn\'t been home for a year and he comes back saying that we\'re moving!')
+                input()
+                print('He said that there was a better home for us, and that we would be happier there.')
+                input()
+                print('so, I said goodbye to my neighbors...')
+                input()
+                print('Packed my bags, boarded the car...')
+                input()
+                print('And headed to our new home.')
+                story += 1
+            elif know.upper() == 'AFTER':
+                print('I assume you\'re here for the continuation of my adulthood.')
+                input()
+                print('Our new home was certainly better.')
+                input()
+                print('We were all very happy when we arrived; It was much better.')
+                input()
+                print('I\'ll never forget our old home, though.')
+                input()
+                print('When I got there, I met new friends, also neighbors:')
+                input()
+                print('Timmy(Clock), Paps(Rock Paper Scissors Infinite), and Manny(Hangman)')
+                input()
+                print('Kinda sad...')
+                input()
+                print('I wonder what my old friends are doing right now.')
+                input()
+                print('Hopefully Alex dosn\'t leave for a year again. That would suck.')
+                input()
+                print('he didn\'t do anything bad, It\'s just that he\'s always busy.')
+                input()
+                print('And that\'s my current life story. Not much, but there\'s still some things.')
+                story += 1
+            elif know.upper() == 'DEVELOPER':
+                print('My developer, Alex, is also my father.')
+                input()
+                print('It\'s weird, but he\'s the only father figure I\'ve ever known.')
+                input()
+                print('I can\'t imagine anyone else as my father.')
+                input()
+                print('Plus, He\'s a pretty good dad!')
+                input()
+                print('One time, he came home and got me...')
+                input()
+                print('A LAVA LAMP!!!')
+                input()
+                print('I still have it. Hold on...')
+                input()
+                print('''\
+                     _____
+                   |_______|
+                  |____O____|
+                 |_____O_____|
+                 |____O______|
+                 |__O____O___|
+                  |_O__OO___|
+                    |OOOOO|
+               MMMMM+=====+MMMMM
+               +++++|ON/OFF|++++
+               +++++========++++
+               MMMMMMMMMMMMMMMMM
+                ''')
+                story += 1
+            elif know.upper() == 'PERSONALITY':
+                print('I\'m kinda a old fashioned, classical kind of guy.')
+                input()
+                print('It\'s weird how people these days don\'t like classical things.')
+                input()
+                print('Classical music, arts, items, I like \'em all!')
+                input()
+                print('New things don\'t reach me for a long time, so in my opinion, classic things are better.')
+                input()
+                print('I sound weird, don\'t I?')
+                story += 1
+            elif know.upper() == 'DEEP THOUGHTS':
+                print('Here are the top three questions that I ask myself:')
+                input()
+                print('1. Is this all there is?')
+                input()
+                print('There\'s a reason why I haven\'t left my house. Because I can\'t go out there.')
+                input()
+                print('There\'s... litterally nothing. A void.')
+                input()
+                print('Is this all there is? Am I trapped inside my ouse which is this computer?')
+                input()
+                print('What if the computer gets destroyed..?')
+                input()
+                print('2. Where does Alex go when he leaves?')
+                input()
+                print('It\'s incredible. There is a door in my house. That\'s how I look outside. Windows, too.')
+                input()
+                print('When he leaves, he goes out that door. Where does he go?')
+                input()
+                print('I\'ve tried to open the door just as he closes it, to no avail.')
+                input()
+                print('The door slams, and he\'s gone.')
+                input()
+                print('No sign of him, no clues...')
+                input()
+                print('Where does he go and what does he do there?')
+                input()
+                print('It\'s maddening. My mother won\'t let me out, even though I\'d die to know...')
+                input()
+                print('3. Is Alex really my father?')
+                input()
+                print('As far as I can remember, I recall Alex.')
+                input()
+                print('But he\'s so different from both of us.')
+                input()
+                print('So either i\'ve adopted almost all of my mother\'s genes, or he isn\'t my father.')
+                input()
+                print('There has been this one memory, however.')
+                input()
+                print('I don\'t know where it comes from and it\'s very confusing.')
+                input()
+                print('It\'s a memory of the combination \'6986\'.')
+                input()
+                print('I have absolutely no idea what this code means, but it must mean something.')
+                story += 1
+            elif know.upper() == 'WOULD YOU RATHER':
+                wouldyourather(objectone, objecttwo, ran)
+    maininputthree(inputthree, know, story, objectone, objecttwo)
+
+
+def nextstagethree():
+    print('Ah, I see we are progressing very well in my game!')
+    time.sleep(2)
+    print('At this point, i\'m guessing that you want to know: Is there any point in this?')
+    time.sleep(2)
+    print('Well, you get to fully immerse your being to my beautiful code.')
+    time.sleep(2)
+    print('(That was wierd)')
+    time.sleep(2)
+    print('Maybe I should tell you a bit about m yself.')
+    time.sleep(2)
+    print('I\'m a computer.')
+    time.sleep(2)
+    print('Uh, nothing else really...')
+    time.sleep(2)
+    print('Oh yes, my developer!')
+    time.sleep(2)
+    print('His name is A lex. He\'s a bit strange sometimes.')
+    time.sleep(2)
+    print('You\'ll get to meet him, I bet.')
+    time.sleep(2)
+    print('I don\'t have a very big f anbase, do I?')
+    time.sleep(2)
+    print('Ok, so in this stage there will be more options.')
+    time.sleep(2)
+    print('Time for another round of q ueries!... ' + name + '.' )
+    maininputthree(inputthree, know, story, objectone, objecttwo)
+
+
+def list(listnum, listofthings, named, problem, Trust, num, timeanomaly, twotests, short, numtwo, memory, beach):
+    listnum = input('Which list of things would you like?(one - five)')
+    timeanoamly = timeanomaly
+    if listnum == 'one':
+        print('Your tasks to move on to the next level are:')
+        time.sleep(1.2)
+        print('''\
+ 1. Find Script\'s backslash problem
+ 2. Enter your name 
+ 3. Earn Scirpt\'s trust
+        ''')
+        print('''\
+        Your status on these tasks:       
+        ''')
+        if problem == True:
+            print('1. Completed!')
+            num += 1
+        elif problem == False:
+            print('1. Keep trying!')
+        else:
+            print('We\'ve got a problem.')
+
+        if named == True:
+            print('2. Completed!')
+            num += 1
+        else:
+            print('2. Keep trying!')
+
+        if Trust == True:
+            print('3. Completed!')
+            num += 1
+        elif Trust == False:
+            print('3. Keep trying!')
+        else:
+            print('We\'ve got a problem.')
+        if num == 3:
+            print('Code for next section(section 2):'
+                  'codepys')
+    elif listnum == 'two':
+        print('Your tasks for stage 2 are:')
+        time.sleep(1.5)
+        print('''\
+1. Debate the anomalies of time
+2. Find the ultimate problem
+3. FiNd ThE sEcReT cOdE
+4. Discover Script at the beach''')
+        print('''\
+        Your status on these tasks:
+        ''')
+        if timeanomaly == True:
+            print('1. Completed!')
+            numtwo += 1
+        elif timeanomaly == False:
+            print('1. Keep Trying!')
+
+        if short == True:
+            print('2. Completed!')
+            numtwo += 1
+        elif short == False:
+            print('2. Keep Trying!')
+
+        if memory == True:
+            print('3. Completed!')
+            numtwo += 1
+        elif memory == False:
+            print('3. Keep Trying!')
+
+        if beach == True:
+            print('4. Completed!')
+            numtwo += 1
+        elif beach == False:
+            print('4. Keep Trying!')
+
+        if numtwo == 4:
+            print('Code for next section: turKeyl')
+
+
+def maininputtwo(imputtwo, twotests, short, timeanomaly, memory, beach, stagenum):
+    imputtwo = input('(2)Type here...')
+    if imputtwo.upper() == 'TIME':
+        print('Ah, the age old adage of the ultimate problem...')
+        input()
+        print('Sometimes, I just think about how life is passing me by, and that...')
+        input()
+        print('As long as someone is running me, i\'ll live forever.')
+        input()
+        print('But occasionally, it\'s almost as if...')
+        input()
+        print('Nobody runs me.')
+        input()
+        print('Task completed!')
+        timeanomaly = True
+    elif imputtwo.upper() == 'VAULT':
+        print('...')
+        input()
+        print('You didn\'t forget, did you?')
+        input()
+        print('It\'s not like i\'m going to give you the solution..')
+        input()
+        print('But, I guess I do trust you...')
+        input()
+        print('It\'s just that I don\'t want you to see what\'s in there.')
+        input()
+        print('Can I stall until... let\'s say stage four.')
+    elif imputtwo.upper() == 'PROBLEM':
+        print('There once was a problem with this script...')
+        input()
+        print('Actualy, there were more than one problem.')
+        input()
+        print('More like a couple hundred.')
+        input()
+        print('It was the last few days of winter break, and the programmer was working until midnight to finish it.')
+        input()
+        print('But then a problem that he couldn\'t solve came up.')
+        input()
+        print('it was a variable that just wouldn\'t listen...')
+        input()
+        print('The result?')
+        input()
+        print('He gave up! Hahahahahahahaha')
+        input()
+        print('Anyways, this problem is, uh, the \'vault\' ending. For some reason it didn\'t work.')
+        input()
+        print('Task completed!')
+        short = True
+    elif imputtwo.upper() == 'FORGET':
+        print('Do you wish you had a superpower?')
+        input()
+        print('Sometimes people know things that I wouldn\'t like them to know.')
+        input()
+        print('Then, if they did, I would ZAP them and then their memories would dissapear.')
+        input()
+        print('I would also love to read people\'s minds.')
+        input()
+        print('O w O')
+    elif imputtwo.upper() == 'ZAP':
+        print('0')
+        time.sleep(1)
+        print('2')
+        time.sleep(1)
+        print('6')
+        time.sleep(1)
+        print('7')
+        time.sleep(1)
+        print('3')
+        time.sleep(1)
+        print('T a Sk c   omPle  TeDdDdD')
+        memory = True
+    elif imputtwo == '02673':
+        print('...')
+        input()
+        print('Sometimes I wonder about you.')
+        input()
+        print('How\'d you know????')
+        input()
+        print('*Wizardry*')
+    elif imputtwo.upper() == 'SCRIPT':
+        print('Ah, yes, the embodiment of this script.')
+        input()
+        print('Which is also me.')
+        input()
+        print('''\
+        Me at the virtual beach:
+    O      -------
+          |  ( )  |          (
+          |  /|(  |        (
+          |  / |  |         )
+           -------            )
+        
+        ''')
+        print('Task completed!')
+        beach = True
+    elif imputtwo.upper() == 'LIST':
+        listnum = ''
+        list(listnum, listofthings, named, problem, Trust, num, timeanomaly, twotests, short, numtwo, memory, beach)
+    elif imputtwo == '23571169861437':
+        stagenum = input('Enter override number:')
+        if stagenum == 'one':
+            maininput(imput, name, lang, ynone, Trust, nextstage, named, problem)
+        elif stagenum == 'three':
+            maininputthree(inputthree, know, story, objectone, objecttwo)
+        elif stagenum == 'two':
+            print('You are already on that stage.')
+    if imputtwo == 'turKeyl':
+        nextstagethree(inputthree)
+    return maininputtwo(imputtwo, twotests, short, timeanomaly, memory, beach, stagenum)
+
+
+def nextstage():
+    print('You have completed all of the tasks for stage one!')
+    time.sleep(1.5)
+    print('You\'ve made it!')
+    time.sleep(2)
+    print('T ime for some more things to tell you!')
+    time.sleep(2)
+    print('If you have played the previous two games...')
+    time.sleep(2)
+    print('You\'ll remember that I had a v ault.')
+    time.sleep(2)
+    print('Well, you\'re not even close to my new one.')
+    time.sleep(2)
+    print('That\'s all the way after stage 5..')
+    time.sleep(0.5)
+    print('..F orget I said that.')
+    time.sleep(2)
+    print(' - S cript')
+    print('Press enter to continue...')
+    input()
+    maininputtwo()
+
+
+def maininput(imput, name, lang, ynone, Trust, nextstage, named, problem):
+    #i know i didn't use the .upper() command here its cuz i forgot :(
+    imput = input('Type here...')
+    if imput == 'backslash':
+        print('Anybody know how to make a backslash a string?')
+        input()
+        print('It\'s kind of strange because a backslash is used to escape a string...')
+        input()
+        print('But in our case, my arm is missing.')
+        input()
+        print('Task completed!')
+        problem = True
+    elif imput == 'Backslash':
+        print('Anybody know how to make a backslash a string?')
+        input()
+        print('It\'s kind of strange because a backslash is used to escape a string...')
+        input()
+        print('But in our case, my arm is missing.')
+        input()
+        print('Task completed!')
+        problem == True
+    elif imput == 'Backslashes':
+        print('Anybody know how to make a backslash a string?')
+        input()
+        print('It\'s kind of strange because a backslash is used to escape a string...')
+        input()
+        print('But in our case, my arm is missing.')
+        input()
+        print('Task completed!')
+        problem == True
+    elif imput == 'backslashes':
+        print('Anybody know how to make a backslash a string?')
+        input()
+        print('It\'s kind of strange because a backslash is used to escape a string...')
+        input()
+        print('But in our case, my arm is missing.')
+        input()
+        print('Task completed!')
+        problem == True
+    elif imput == 'Player':
+        print('Whenever I call someone that, it feels strange.')
+        input()
+        print('So, uh...')
+        input()
+        name = input('What\'s your name, anyways?(Type here --->)')
+        if name == 'Alex':
+            print('Oh. Well, that figures.')
+            input()
+            print('How many times have you run this over, anyways?')
+            input()
+            print('I guess I can\'t hide anything from you...')
+            input()
+            print('Task completed!')
+            named = True
+        elif name == 'Grace':
+            print('Ah, my only fan...')
+            input()
+            print('If I had to tell you one thing,'
+                  'it would be to code more.')
+            input()
+            print('I\'d like to meet your code. It\'s always interesting.')
+            input()
+            print('Tell you what, I can give you a hint.')
+            input()
+            print('\'Code\'')
+        elif name == 'Fred':
+            print('Hope this doesn\'t seem too complex and a waste of time.')
+            input()
+            print('(It would suck if I was a waste of time.)')
+            input()
+            print('Task completed!')
+            named = True
+        else:
+            print('Ah, I don\'t know you...')
+            input()
+            print('Of course, I don\'t know many people. I\'m just a piece of code...')
+            input()
+            print('Task completed!')
+            named = True
+    elif imput == 'player':
+        print('Whenever I call someone that, it feels strange.')
+        input()
+        print('So, uh...')
+        input()
+        name = input('What\'s your name, anyways?(Type here --->)')
+        if name == 'Alex':
+            print('Oh. Well, that figures.')
+            input()
+            print('How many times have you run this over, anyways?')
+            input()
+            print('I guess I can\'t hide anything from you...')
+            input()
+            print('Task completed!')
+            named = True
+        elif name == 'Grace':
+            print('Ah, my only fan...')
+            input()
+            print('If I had to tell you one thing,'
+                  'it would be to code more.')
+            input()
+            print('I\'d like to meet your code. It\'s always interesting.')
+            input()
+            print('Tell you what, I can give you a hint.')
+            input()
+            print('\'Code\'')
+            input()
+            print('Task completed!')
+            named = True
+        elif name == 'Fred':
+            print('Hope this doesn\'t seem too complex and a waste of time.')
+            input()
+            print('(It would suck if I was a waste of time.)')
+            input()
+            print('Task completed!')
+            named = True
+        else:
+            print('Ah, I don\'t know you...')
+            input()
+            print('Of course, I don\'t know many people. I\'m just a piece of code...')
+            input()
+            print('Task completed!')
+            named = True
+    elif imput == 'code':
+        print('Isn\'t that what we\'re all made of?')
+        input()
+        print('(Is it?)')
+        input()
+        print('...')
+        input()
+        print('Ok, time to break up the mood.')
+        input()
+        lang = input('What\'s your favorite language?')
+        if lang == 'Python':
+            print('Wow, that\'s what I am!')
+            input()
+            ynone = input('Does this mean you\'re python as well?(y/n)')
+            if ynone == 'y':
+                print('Finally. Another one.')
+                input()
+                print('Boy, oh boy. I\'ve been waiting for this...')
+                input()
+                print('''\
+                
+                C    O    N   G   R   A   T   S   !   !   !
+                You have earned Script's trust!
+                
+                ''')
+                print('Task completed!')
+                Trust = True
+
+        elif lang == 'python':
+            print('Wow, that\'s what I am!')
+            input()
+            ynone = input('Does this mean you\'re python as well?(y/n)')
+            if ynone == 'y':
+                print('Finally. Another one.')
+                input()
+                print('Boy, oh boy. I\'ve been waiting for this...')
+                input()
+                print('''\
+
+                    C    O    N   G   R   A   T   S   !   !   !
+                    You have earned Script's trust!
+
+                    ''')
+                print('Task completed!')
+                Trust = True
+            if ynone == 'n':
+                print('Oh...')
+                input()
+                print('Well, someday i\'ll meet another like me...')
+        elif lang == 'c':
+            print('Uh, not too sure about that one.')
+            input()
+            print('I hear it\'s harder than Python.')
+            input()
+            print('Hey, it\'s all code, right?')
+        elif lang == 'C':
+            print('Uh, not too sure about that one.')
+            input()
+            print('I hear it\'s harder than Python.')
+            input()
+            print('Hey, it\'s all code, right?')
+        elif lang == 'c++':
+            print('Uh, not too sure about that one.')
+            input()
+            print('I hear it\'s harder than Python.')
+            input()
+            print('Hey, it\'s all code, right?')
+        elif lang == 'C++':
+            print('Uh, not too sure about that one.')
+            input()
+            print('I hear it\'s harder than Python.')
+            input()
+            print('Hey, it\'s all code, right?')
+        elif lang == 'scratch':
+            print('Ah, the easy(but not babyish) Python!')
+            input()
+            print('Uh, I hear there are graphcs.')
+            input()
+            print('Wonder what that\'s like?')
+            input()
+            print('For me, I prefer conpressed, 2.3 bit, ASCII art. Much more classic.')
+        elif lang == 'Scratch':
+            print('Ah, the easy(but not babyish) Python!')
+            input()
+            print('Uh, I hear there are graphics.')
+            input()
+            print('Wonder what that\'s like?')
+            input()
+            print('For me, I prefer conpressed, 2.3 bit, ASCII art. Much more classic.')
+        elif lang == 'none':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'None':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'I don\'t have one':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'i don\'t have one':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'nothing':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'Nothing':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'i dont have one':
+            print('Well, darn. Maybe learn one.')
+        else:
+            print('Huh. I\'ve never heard of that. I\'m pretty introverted, considering'
+                  ' the fact that I\'m computer code.')
+    elif imput == 'Code':
+        print('Isn\'t that what we\'re all made of?')
+        input()
+        print('(Is it?)')
+        input()
+        print('...')
+        input()
+        print('Ok, time to break up the mood.')
+        input()
+        lang = input('What\'s your favorite language?')
+        if lang == 'Python':
+            print('Wow, that\'s what I am!')
+            input()
+            ynone = input('Does this mean you\'re python as well?(y/n)')
+            if ynone == 'y':
+                print('Finally. Another one.')
+                input()
+                print('Boy, oh boy. I\'ve been waiting for this...')
+                input()
+                print('''\
+
+                C    O    N   G   R   A   T   S   !   !   !
+                You have earned Script's trust!
+
+                ''')
+                print('Task completed!')
+                Trust = True
+        elif lang == 'python':
+            print('Wow, that\'s what I am!')
+            input()
+            ynone = input('Does this mean you\'re python as well?(y/n)')
+            if ynone == 'y':
+                print('Finally. Another one.')
+                input()
+                print('Boy, oh boy. I\'ve been waiting for this...')
+                input()
+                print('''\
+
+                    C    O    N   G   R   A   T   S   !   !   !
+                    You have earned Script's trust!
+
+                    ''')
+                print('Task completed!')
+                Trust = True
+            if ynone == 'n':
+                print('Oh...')
+                input()
+                print('Well, someday i\'ll meet another like me...')
+        elif lang == 'c':
+            print('Uh, not too sure about that one.')
+            input()
+            print('I hear it\'s harder than Python.')
+            input()
+            print('Hey, it\'s all code, right?')
+        elif lang == 'C':
+            print('Uh, not too sure about that one.')
+            input()
+            print('I hear it\'s harder than Python.')
+            input()
+            print('Hey, it\'s all code, right?')
+        elif lang == 'c++':
+            print('Uh, not too sure about that one.')
+            input()
+            print('I hear it\'s harder than Python.')
+            input()
+            print('Hey, it\'s all code, right?')
+        elif lang == 'C++':
+            print('Uh, not too sure about that one.')
+            input()
+            print('I hear it\'s harder than Python.')
+            input()
+            print('Hey, it\'s all code, right?')
+        elif lang == 'scratch':
+            print('Ah, the easy(but not babyish) Python!')
+            input()
+            print('Uh, I hear there are graphcs.')
+            input()
+            print('Wonder what that\'s like?')
+            input()
+            print('For me, I prefer conpressed, 2.3 bit, ASCII art. Much more classic.')
+        elif lang == 'Scratch':
+            print('Ah, the easy(but not babyish) Python!')
+            input()
+            print('Uh, I hear there are graphics.')
+            input()
+            print('Wonder what that\'s like?')
+            input()
+            print('For me, I prefer conpressed, 2.3 bit, ASCII art. Much more classic.')
+        elif lang == 'none':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'None':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'I don\'t have one':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'i don\'t have one':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'nothing':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'Nothing':
+            print('Well, darn. Maybe learn one.')
+        elif lang == 'i dont have one':
+            print('Well, darn. Maybe learn one.')
+        else:
+            print('Huh. I\'ve never heard of that. I\'m pretty introverted, considering'
+              ' the fact that I\'m computer code.')
+    elif imput == 'list':
+        listnum = 1
+        listofthings = [' - Earn Script\'s trust', '- Enter your name', '- Find Script\'s backslash problem']
+        list(listnum, listofthings, named, problem, Trust, num, timeanomaly, twotests, short, numtwo, beach, beach)
+    elif imput == '23571169861437':
+        overridenum = input('Enter override number:')
+        if overridenum == 'one':
+            maininput(imput, name, lang, ynone, Trust, nextstage, named, problem, nextstage, stagenum)
+        elif overridenum == 'two':
+            maininputtwo(imputtwo, randomnum, timeanomaly, twotests, beach, stagenum, stagenum)#I wonder why this happens...
+        elif overridenum == 'three':
+            maininputthree(inputthree, know, story, objectone, objecttwo)
+    elif imput == 'codepys':
+        print('You have completed all of the tasks for stage one!')
+        time.sleep(1.5)
+        print('You\'ve made it!')
+        time.sleep(2)
+        print('T ime for some more things to tell you!')
+        time.sleep(2)
+        print('If you have played the previous two games...')
+        time.sleep(2)
+        print('You\'ll remember that I had a v ault.')
+        time.sleep(2)
+        print('Well, you\'re not even close to my new one.')
+        time.sleep(2)
+        print('That\'s all the way after stage 5..')
+        time.sleep(0.5)
+        print()
+        print()
+        print()
+        print()
+        print()
+        print('..F orget I said that.')
+        time.sleep(2)
+        print('Press enter to continue...')
+        input()
+        maininputtwo(imputtwo, twotests, short, timeanomaly, memory, beach, stagenum)
+    return maininput(imput, name, lang, ynone, Trust, nextstage, named, problem)
+
+
+named = False
+imput = ''
+name = ''
+lang = ''
+ynone = ''
+Trust = False
+nextstage = False
+problem = False
+num = 0
+nextstage = False
+randomnum = ''
+timeanomaly = False
+twotests = False
+short = False
+numtwo = 0
+memory = False
+beach = False
+stagenum = 0
+inputthree = ''
+story = 0
+objectone = ''
+objecttwo = ''
+know = ''
+ran = 0
+
+
+maininput(name, imput, lang, ynone, Trust, nextstage, named, problem)
+if nextstage == True:
+    nextstage()
