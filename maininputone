@@ -1,0 +1,353 @@
+import time
+import webbrowser
+from main_inputtwo_functions import next_stage
+
+haveigonetolist = False
+taskone = False
+tasktwo = False
+taskthree = False
+main = ''
+name = ''
+
+def runs():
+    import atexit
+    from os import path
+    from json import dumps, loads
+
+    def read_counter():
+        return loads(open("counter.json", "r").read()) + 1 if path.exists("counter.json") else 0
+
+    def write_counter():
+        with open("counter.json", "w") as f:
+            f.write(dumps(counter))
+
+    counter = read_counter()
+    atexit.register(write_counter)
+
+    def howmanyruns():
+        print("You\'ve litteraly run me {} times.".format(counter))
+
+    if __name__ == "__main__":
+        howmanyruns()
+
+
+def finished(main):
+    next_stage()
+
+
+def get_name(name, haveigonetolist, taskone, tasktwo, taskthree):
+    if name != '':
+        print('You already told me your name, right? your name is ' + name + '.')
+    else:
+        print('Ah yes! Always classic to remember your name.')
+        input()
+        name = input('Tell me your name: ')
+        if name == 'Alex Min':
+            print('Bruh.')
+            input()
+            runs()
+            print('Task Completed!')
+            taskone = True
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif name == 'Grace':
+            print('Oh, I recognise you from the previous two games!')
+            input()
+            print('I have some advice for you.')
+            input()
+            print('Try to find a direction for your life. At least something for the time being.')
+            input()
+            print('Like coding, because then you can get good at it and everything!')
+            input()
+            print('So glad I got this chance to speak with you.')
+            input()
+            print('Task Completed!')
+            taskone = True
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif name == 'Fred':
+            print('Enjoying the game so far?')
+            input()
+            print('You\'re a busy guy, and this is a long game, so i\'ll just leave you\n'
+                  'with a little something that I thought was cool.')
+            iput()
+            webbrowser.open('https://xkcd.com/1932/')
+            print('Done!')
+            print('Task Completed!')
+            taskone = True
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif name == '':
+            print('That\'s not a name. You\'re toying with me.')
+            print('')
+            print('Task NOT Completed!')
+            taskone = False
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        else:
+            print('\'' + name + '\'.')
+            input()
+            print('What a nice name!')
+            input()
+            print(name + ' ' + name + ' ' + name + ' ' + name + '.')
+            input()
+            print('...')
+            input()
+            print('Well anyway, I got your name!')
+            print('')
+            print('Task Completed!')
+            taskone = True
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+
+
+def list(taskone, tasktwo, taskthree, haveigonetolist):
+    print('''
+    
+
+Tasks:    
+1. Tell Script your name
+2. Why can\'t your arm be a backslash, again?
+3. Say hello, because it\'s manners
+          ''')
+    print('Your status on these tasks:')
+    if taskone == False:
+        print('1. Keep trying!')
+    else:
+        print('1. Completed!')
+    if tasktwo == False:
+        print('2. Keep trying!')
+    else:
+        print('2. Completed!')
+    if taskthree == False:
+        print('3. Keep trying!')
+    else:
+        print('3. Completed!')
+    if taskone == True and tasktwo == True and taskthree == True:
+        print('The code for the next stage is \'codepysone\'. Congrats, you finished stage one.')
+
+
+def next_stageone(main, taskone, tasktwo, taskthree):
+    if main == 'codepys' and taskone == True and tasktwo == True and taskthree == True:
+        next_stage()
+    else:
+        print('Ah ah ah. you haven\'t finished all of the tasks for stage one yet.')
+        maininput(main, haveigonetolist,taskone, tasktwo, taskthree, name)
+
+
+def maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name):
+    while True:
+        main = input('Type here[1]:   ')
+        if main == '':
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main == 'list':
+            if haveigonetolist == False:
+                print('Welcome to the list.')
+                input()
+                print('My name is the taskmaster and I maintain the list.')
+                input()
+                print('When you complete a task, it will say \'Task Completed!\' at the bottom.')
+                input()
+                print('Then if you check back here, the list will have changed.')
+                input()
+                print('Awesome right?(No i\'m actually bored)')
+                input()
+                print('Anyway, have a look. You can get some hints here.')
+                haveigonetolist = True
+                list(taskone, tasktwo, taskthree, haveigonetolist)
+            else:
+                list(taskone, tasktwo, taskthree, haveigonetolist)
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        if main.lower() == 'hello':
+            print('Oh, hi!')
+            input()
+            print('Well, you\'ve got some manners!')
+            input()
+            print('Yeah, I guess the first stage is kinda boring.')
+            input()
+            print('You know, there\'s actually like 5 stages and there\'s gonna be a bossfight and everything...')
+            input()
+            print('Well, I probably shouldn\'t spoil it all.')
+            print('')
+            print('Task completed!')
+            input()
+            taskthree = True
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'hi':
+            print('\'hi.\'')
+            input()
+            print('Wow, what a simple greeting.')
+            input()
+            print('I mean, not that it isn\'t bad or anything.')
+            input()
+            print('Just a bit short.')
+            print('')
+            print('Task completed!')
+            input()
+            taskthree = True
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'my warmest greetings to you, my good sir':
+            print('Ah, yes, a true gentleman and noble one. I do wish you a splendid day.')
+            print('')
+            print('Task Completed!')
+            taskthree = True
+        elif main.lower() == 'my name is':
+            get_name(name, haveigonetolist, taskone, tasktwo, taskthree)
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'name':
+            get_name(name, haveigonetolist, taskone, tasktwo, taskthree)
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'get name':
+            get_name(name, haveigonetolist, taskone, tasktwo, taskthree)
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'player':
+            get_name(name, haveigonetolist, taskone, tasktwo, taskthree)
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'no name':
+            get_name(name, haveigonetolist, taskone, tasktwo, taskthree)
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'i have no name':
+            get_name(name, haveigonetolist, taskone, tasktwo, taskthree)
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'give me a name':
+            get_name(name, haveigonetolist, taskone, tasktwo, taskthree)
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'what\'s my name':
+            if name != '':
+                print('Your name is ' + name + '. I remember!')
+                maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+            else:
+                get_name(name, haveigonetolist)
+                maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'whats my name':
+            if name != '':
+                print('Your name is ' + name + '. I remember!')
+                maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+            else:
+                get_name(name, haveigonetolist)
+                maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+
+        elif main.lower() == 'backslash':
+            print('Oh, need me to explain?')
+            input()
+            print('Ah. So, in Python, my coding lanuage, the backslash is used to escape quotation marks.')
+            input()
+            print('Why do you need quotation marks, why it\'s very simple.')
+            input()
+            print('What you see here are \'strings\'. I need to use the print() function so you can see them.')
+            input()
+            print('In the print function, I need to put what I want here in quotation marks.')
+            input()
+            print('Therefore, when I use a bracket to show you my picture, I can\'t because it escapes the \n'
+                  'quotation marks.')
+            input()
+            print('Simple, right?')
+            input()
+            print('Task completed!')
+            tasktwo = True
+            tasktwo = True
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'backslashes':
+            print('Oh, need me to explain?')
+            input()
+            print('Ah. So, in Python, my coding lanuage, the backslash is used to escape quotation marks.')
+            input()
+            print('Why do you need quotation marks, why it\'s very simple.')
+            input()
+            print('What you see here are \'strings\'. I need to use the print() function so you can see them.')
+            input()
+            print('In the print function, I need to put what I want here in quotation marks.')
+            input()
+            print('Therefore, when I use a bracket to show you my picture, I can\'t because it escapes the \n'
+                  'quotation marks.')
+            input()
+            print('Simple, right?')
+            input()
+            print('Task completed!')
+            tasktwo = True
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+        elif main.lower() == 'why cant you put backslashes':
+            print('Oh, need me to explain?')
+            input()
+            print('Ah. So, in Python, my coding lanuage, the backslash is used to escape quotation marks.')
+            input()
+            print('Why do you need quotation marks, why it\'s very simple.')
+            input()
+            print('What you see here are \'strings\'. I need to use the print() function so you can see them.')
+            input()
+            print('In the print function, I need to put what I want here in quotation marks.')
+            input()
+            print('Therefore, when I use a bracket to show you my picture, I can\'t because it escapes the \n'
+                  'quotation marks.')
+            input()
+            print('Simple, right?')
+            input()
+            print('Task completed!')
+            tasktwo = True
+        elif main.lower() == 'why can\'t you put backslashes':
+            print('Oh, need me to explain?')
+            input()
+            print('Ah. So, in Python, my coding lanuage, the backslash is used to escape quotation marks.')
+            input()
+            print('Why do you need quotation marks, why it\'s very simple.')
+            input()
+            print('What you see here are \'strings\'. I need to use the print() function so you can see them.')
+            input()
+            print('In the print function, I need to put what I want here in quotation marks.')
+            input()
+            print('Therefore, when I use a bracket to show you my picture, I can\'t because it escapes the \n'
+                  'quotation marks.')
+            input()
+            print('Simple, right?')
+            input()
+            print('Task completed!')
+            tasktwo = True
+        elif main.lower() == 'why no backslashes':
+            print('Oh, need me to explain?')
+            input()
+            print('Ah. So, in Python, my coding lanuage, the backslash is used to escape quotation marks.')
+            input()
+            print('Why do you need quotation marks, why it\'s very simple.')
+            input()
+            print('What you see here are \'strings\'. I need to use the print() function so you can see them.')
+            input()
+            print('In the print function, I need to put what I want here in quotation marks.')
+            input()
+            print('Therefore, when I use a bracket to show you my picture, I can\'t because it escapes the \n'
+                  'quotation marks.')
+            input()
+            print('Simple, right?')
+            input()
+            print('Task completed!')
+            tasktwo = True
+        elif main == 'codepysone':
+            finished(main)
+            break
+        else:
+            print('Sorry, no ending for that. Try again!')
+            maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+
+
+def start(main):
+    time.sleep(1)
+    print('Wait!!! hold up, how are they supposed to know what to type if they have no context???(Press enter)')
+    input('')
+    print('Okay, bit of an introduction to *ahem* me...')
+    input('')
+    print('My name is Script. You\'ll remember that\'s also the name of this game.')
+    input('')
+    print('I\'m made of ASCII art!')
+    input('')
+    print('''\
+                    Here\'s a picture of me:
+
+
+                                        ( )
+                                        /|) <----- I can\'t do a backslash here because it cancels out itself
+                                        / | <----Here, too.
+                                    S C R I P T
+                          ''')
+    input('')
+    print(
+        'And, just to give you a bit of a clue, you can type \'list\' in the typing thing to get some information.')
+    input('')
+    print('Good luck!')
+    maininput(main, haveigonetolist, taskone, tasktwo, taskthree, name)
+
+
+start(main)
