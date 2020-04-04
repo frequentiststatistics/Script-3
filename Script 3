@@ -1,0 +1,69 @@
+import time
+import turtle as t
+from tkinter import Tk, Canvas
+from main_inputone_funtions import start
+
+def stage_one():
+    print('Welcome to stage one!')
+    time.sleep('2')
+    print('Soon, you will begin the game.')
+    time.sleep(2)
+    print('A main input will appear, so that you can type things\n'
+               ' and see what happens! Fun!')
+    time.sleep(3)
+    print('3...')
+    time.sleep(1)
+    print('2..')
+    time.sleep(1)
+    print(1.)
+    start(main)
+
+
+def tutorial():
+    c = Canvas(width=800, height=800, bg='white')
+    print('Hello and welcome once again to Script!!!')
+    time.sleep(2)
+    print('Is this thing on???')
+    time.sleep(2)
+    print('Hold on a minute...')
+    time.sleep(2)
+    root = Tk()
+    root.title('0101011100101110010001000010111000100000010001110100000101010011010101000100010101010010')
+    c.create_text(0, 0, anchor='w', fill='black', font='wingdings', text='010101110110010101101100011000110110'
+                                                                         '11110110110101100101001000000111010001'
+                                                                         '101111001000000111001101110100011000010110'
+                                                                         '011101100101001000000011001000100001')
+    c.pack()
+    print('Uh.....')
+    time.sleep(2)
+    t.title('010011100110111100100000011001000110111101101110001001110111010000'
+            '10000001101100011001010110000101110110011001010010000001101101011001'
+            '01001011100010111000101110')
+    t.speed(0)
+    t.pensize(4)
+    time.sleep(2)
+    print('Wait, I think I accidentally just opened some random windows on your computer.')
+    time.sleep(2)
+    print('Better close those...')
+    time.sleep(2)
+    print('Anyways! I\'m ready now!')
+    print('Here, have a look at the insrtuctions:')
+    time.sleep(2)
+    print('')
+    print('INSTRUCTIONS\n'
+          'Not really any here, because there isn\'t much to this game.\n'
+          'Press enter and follow instructions when needed!\n'
+          'Script III is a game where you find different endings and\n'
+          'try to complete the \'stages\' to get to the final ending!\n'
+          '(If you havent\'t tried the other two, you should.)\n'
+          'If you haven\'t, then think of this as Script I,\n'
+          'because we\'re basically starting over!\n'
+          'Am I ranting? yes? oh sorry...' )
+    time.sleep(15)
+    print('')
+    print('Ok, those are the instructions!!!')
+    time.sleep('2')
+    input('Press enter to continue...(well, you can type here but it won\'t do anything )')
+    stage_one()
+
+tutorial()
